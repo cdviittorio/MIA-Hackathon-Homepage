@@ -5,14 +5,8 @@ import { useState, useEffect } from "react"
 
 const agendaItems = [
   {
-    time: "28 May",
-    timeDetail: "12:00-16:00",
-    title: "Optional: IT support",
-    isOptional: true,
-  },
-  {
     time: "09:00",
-    title: "Welcome & Teams",
+    title: "Welcome and Take Off",
   },
   {
     time: "09:30",
