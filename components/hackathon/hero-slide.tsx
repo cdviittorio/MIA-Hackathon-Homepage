@@ -85,22 +85,14 @@ function SleekRocket({ className }: { className?: string }) {
   )
 }
 
-// BCG Logo component - clean text-based logo matching official branding
+// BCG Logo component - official logo from Wikipedia
 function BCGLogo({ className }: { className?: string }) {
   return (
-    <div className={className}>
-      <span 
-        className="font-bold tracking-tight"
-        style={{ 
-          color: '#3DCD58',
-          fontSize: '1.75rem',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          letterSpacing: '-0.02em'
-        }}
-      >
-        BCG
-      </span>
-    </div>
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Boston_Consulting_Group_2020_logo.svg"
+      alt="BCG"
+      className={className}
+    />
   )
 }
 
@@ -125,7 +117,7 @@ export function HeroSlide({ hackathonStartTime }: HeroSlideProps) {
         transition={{ delay: 0.1 }}
         className="absolute top-8 left-0 right-0 flex justify-center items-center gap-8"
       >
-        <BCGLogo className="flex items-center" />
+        <BCGLogo className="h-8 object-contain" />
         <div className="w-px h-8 bg-foreground/20" />
         <LabMiamiLogo className="h-10 object-contain" />
       </motion.div>
