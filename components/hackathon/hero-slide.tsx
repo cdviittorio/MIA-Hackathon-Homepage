@@ -85,14 +85,14 @@ function SleekRocket({ className }: { className?: string }) {
   )
 }
 
-// BCG Logo component
+// BCG Logo component - official logo from Wikipedia
 function BCGLogo({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 120 40" className={className}>
-      <text x="0" y="30" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="28" fontWeight="700" letterSpacing="-1">
-        BCG
-      </text>
-    </svg>
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Boston_Consulting_Group_2020_logo.svg"
+      alt="BCG"
+      className={className}
+    />
   )
 }
 
@@ -117,9 +117,9 @@ export function HeroSlide({ hackathonStartTime }: HeroSlideProps) {
         transition={{ delay: 0.1 }}
         className="absolute top-8 left-0 right-0 flex justify-center items-center gap-8"
       >
-        <BCGLogo className="h-8 text-foreground/80" />
+        <BCGLogo className="h-8 object-contain" />
         <div className="w-px h-8 bg-foreground/20" />
-        <LabMiamiLogo className="h-8 object-contain" />
+        <LabMiamiLogo className="h-10 object-contain" />
       </motion.div>
 
       <motion.div

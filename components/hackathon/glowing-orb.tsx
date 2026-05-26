@@ -102,9 +102,9 @@ export function GlowingOrb() {
       }
 
       // Mars - far right side, red/orange
-      const marsX = canvas.width * 0.92
+      const marsX = canvas.width * 0.95
       const marsY = canvas.height * 0.5
-      const marsRadius = Math.min(canvas.width, canvas.height) * 0.12
+      const marsRadius = Math.min(canvas.width, canvas.height) * 0.10
 
       for (let i = 0; i < 250; i++) {
         particles.push(new Particle(marsX, marsY, marsRadius, false, "rgba(255, 100, 50, 1)"))
@@ -215,7 +215,7 @@ export function GlowingOrb() {
       
       // MARS label
       ctx.fillStyle = "rgba(255, 100, 50, 0.9)"
-      ctx.fillText("MARS", canvas.width * 0.92, canvas.height * 0.5 + Math.min(canvas.width, canvas.height) * 0.12 + 30)
+      ctx.fillText("MARS", canvas.width * 0.95, canvas.height * 0.5 + Math.min(canvas.width, canvas.height) * 0.10 + 30)
     }
 
     const drawStars = () => {
@@ -254,9 +254,9 @@ export function GlowingOrb() {
 
       // Draw Mars
       drawPlanet(
-        canvas.width * 0.92,
+        canvas.width * 0.95,
         canvas.height * 0.5,
-        Math.min(canvas.width, canvas.height) * 0.12,
+        Math.min(canvas.width, canvas.height) * 0.10,
         {
           inner: "rgba(255, 180, 140, 0.95)",
           mid: "rgba(220, 80, 40, 0.8)",
