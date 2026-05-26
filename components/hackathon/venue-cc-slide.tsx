@@ -226,7 +226,7 @@ export function VenueCCSlide() {
             <div className="absolute top-2 left-2 bg-black/70 px-2 py-1 rounded">
               <span className="text-[8px] font-mono text-primary">THE LAB MIAMI</span>
             </div>
-            <div className="absolute bottom-10 right-4 bg-black/70 px-2 py-1 rounded">
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/4 bg-black/70 px-2 py-1 rounded">
               <span className="text-[8px] font-mono text-orange-400">CC ROOFTOP</span>
             </div>
           </div>
