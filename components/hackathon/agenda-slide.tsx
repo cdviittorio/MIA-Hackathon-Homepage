@@ -28,11 +28,11 @@ const agendaItems = [
   },
   {
     time: "15:00",
-    title: "Presentations",
+    title: "Final review & Winners",
   },
   {
     time: "16:00",
-    title: "Winners & Happy Hour",
+    title: "Drinks",
     isHighlight: true,
   },
 ]
