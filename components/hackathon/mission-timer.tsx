@@ -7,7 +7,7 @@ interface MissionTimerProps {
   targetDate: Date
 }
 
-// Flip digit component - like an airport departure board
+// Flip digit component - compact size
 function FlipDigit({ value, color = "text-primary" }: { value: string; color?: string }) {
   const [displayValue, setDisplayValue] = useState(value)
   const [isFlipping, setIsFlipping] = useState(false)
@@ -26,23 +26,17 @@ function FlipDigit({ value, color = "text-primary" }: { value: string; color?: s
   }, [value])
 
   return (
-    <div className="relative w-7 h-10 perspective-500">
-      {/* Card container */}
+    <div className="relative w-5 h-7 perspective-500">
       <div className="relative w-full h-full">
-        {/* Background card */}
-        <div className={`absolute inset-0 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-sm border border-zinc-700 shadow-lg`}>
-          {/* Center divider line */}
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-black/60 z-10" />
-          {/* Top half gradient */}
-          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-zinc-700/30 to-transparent rounded-t-sm" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[2px] border border-zinc-700/50 shadow-md">
+          <div className="absolute top-1/2 left-0 right-0 h-px bg-black/50 z-10" />
+          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-zinc-700/20 to-transparent rounded-t-[2px]" />
         </div>
         
-        {/* Static digit (back) */}
-        <div className={`absolute inset-0 flex items-center justify-center font-mono text-2xl font-bold ${color}`}>
-          <span className="drop-shadow-[0_0_8px_currentColor]">{displayValue}</span>
+        <div className={`absolute inset-0 flex items-center justify-center font-mono text-sm font-bold ${color}`}>
+          <span className="drop-shadow-[0_0_4px_currentColor]">{displayValue}</span>
         </div>
         
-        {/* Flipping animation */}
         <AnimatePresence>
           {isFlipping && (
             <motion.div
@@ -50,10 +44,10 @@ function FlipDigit({ value, color = "text-primary" }: { value: string; color?: s
               animate={{ rotateX: -90 }}
               exit={{ rotateX: -90 }}
               transition={{ duration: 0.15, ease: "easeIn" }}
-              className="absolute inset-0 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-sm border border-zinc-700 flex items-center justify-center backface-hidden origin-bottom"
+              className="absolute inset-0 bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[2px] border border-zinc-700/50 flex items-center justify-center backface-hidden origin-bottom"
               style={{ transformStyle: "preserve-3d" }}
             >
-              <span className={`font-mono text-2xl font-bold ${color} drop-shadow-[0_0_8px_currentColor]`}>
+              <span className={`font-mono text-sm font-bold ${color} drop-shadow-[0_0_4px_currentColor]`}>
                 {prevValue.current}
               </span>
             </motion.div>
@@ -64,12 +58,12 @@ function FlipDigit({ value, color = "text-primary" }: { value: string; color?: s
   )
 }
 
-// Colon separator - vertically centered with digits
+// Compact colon separator
 function ColonSeparator() {
   return (
-    <div className="flex flex-col justify-center gap-2 h-10 px-1">
-      <div className="w-1.5 h-1.5 rounded-full bg-primary/80 shadow-[0_0_6px_currentColor]" />
-      <div className="w-1.5 h-1.5 rounded-full bg-primary/80 shadow-[0_0_6px_currentColor]" />
+    <div className="flex flex-col justify-center gap-1 h-7 px-0.5">
+      <div className="w-1 h-1 rounded-full bg-primary/70" />
+      <div className="w-1 h-1 rounded-full bg-primary/70" />
     </div>
   )
 }
@@ -124,22 +118,20 @@ export function MissionTimer({ targetDate }: MissionTimerProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex items-center gap-3 px-4 py-2 rounded-lg bg-black/90 backdrop-blur-md border border-primary/30 shadow-[0_0_20px_rgba(0,230,180,0.15)]"
+      className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-black/80 backdrop-blur-sm border border-primary/20"
     >
       {/* Status indicator */}
-      <div className="flex flex-col items-start gap-0.5">
-        <div className="flex items-center gap-1.5">
-          <motion.div 
-            animate={{ opacity: missionStarted ? 1 : [1, 0.3, 1] }}
-            transition={{ duration: 1, repeat: missionStarted ? 0 : Infinity }}
-            className={`w-2 h-2 rounded-full ${missionStarted ? "bg-green-400" : "bg-red-500"} shadow-[0_0_8px_currentColor]`}
-          />
-          <span className={`text-[9px] font-mono uppercase tracking-widest ${statusColor}`}>
-            {missionStarted ? "MET" : "T-"}
-          </span>
-        </div>
+      <div className="flex items-center gap-1">
+        <motion.div 
+          animate={{ opacity: missionStarted ? 1 : [1, 0.3, 1] }}
+          transition={{ duration: 1, repeat: missionStarted ? 0 : Infinity }}
+          className={`w-1.5 h-1.5 rounded-full ${missionStarted ? "bg-green-400" : "bg-red-500"}`}
+        />
+        <span className={`text-[8px] font-mono uppercase tracking-wider ${statusColor}`}>
+          {missionStarted ? "MET" : "T-"}
+        </span>
       </div>
       
       {/* Flip clock display */}
@@ -147,46 +139,34 @@ export function MissionTimer({ targetDate }: MissionTimerProps) {
         {/* Days (if > 0) */}
         {time.days > 0 && (
           <>
-            <div className="flex flex-col items-center">
-              <div className="flex gap-0.5">
-                <FlipDigit value={formatTwo(time.days)[0]} color={statusColor} />
-                <FlipDigit value={formatTwo(time.days)[1]} color={statusColor} />
-              </div>
-              <span className="text-[7px] font-mono uppercase text-muted-foreground mt-0.5">days</span>
+            <div className="flex gap-px">
+              <FlipDigit value={formatTwo(time.days)[0]} color={statusColor} />
+              <FlipDigit value={formatTwo(time.days)[1]} color={statusColor} />
             </div>
             <ColonSeparator />
           </>
         )}
         
         {/* Hours */}
-        <div className="flex flex-col items-center">
-          <div className="flex gap-0.5">
-            <FlipDigit value={formatTwo(time.hours)[0]} color={statusColor} />
-            <FlipDigit value={formatTwo(time.hours)[1]} color={statusColor} />
-          </div>
-          <span className="text-[7px] font-mono uppercase text-muted-foreground mt-0.5">hrs</span>
+        <div className="flex gap-px">
+          <FlipDigit value={formatTwo(time.hours)[0]} color={statusColor} />
+          <FlipDigit value={formatTwo(time.hours)[1]} color={statusColor} />
         </div>
         
         <ColonSeparator />
         
         {/* Minutes */}
-        <div className="flex flex-col items-center">
-          <div className="flex gap-0.5">
-            <FlipDigit value={formatTwo(time.minutes)[0]} color={statusColor} />
-            <FlipDigit value={formatTwo(time.minutes)[1]} color={statusColor} />
-          </div>
-          <span className="text-[7px] font-mono uppercase text-muted-foreground mt-0.5">min</span>
+        <div className="flex gap-px">
+          <FlipDigit value={formatTwo(time.minutes)[0]} color={statusColor} />
+          <FlipDigit value={formatTwo(time.minutes)[1]} color={statusColor} />
         </div>
         
         <ColonSeparator />
         
         {/* Seconds */}
-        <div className="flex flex-col items-center">
-          <div className="flex gap-0.5">
-            <FlipDigit value={formatTwo(time.seconds)[0]} color={statusColor} />
-            <FlipDigit value={formatTwo(time.seconds)[1]} color={statusColor} />
-          </div>
-          <span className="text-[7px] font-mono uppercase text-muted-foreground mt-0.5">sec</span>
+        <div className="flex gap-px">
+          <FlipDigit value={formatTwo(time.seconds)[0]} color={statusColor} />
+          <FlipDigit value={formatTwo(time.seconds)[1]} color={statusColor} />
         </div>
       </div>
     </motion.div>

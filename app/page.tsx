@@ -130,48 +130,9 @@ export default function HackathonLobby() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-4"
+            className="flex items-center"
           >
             <MissionTimer targetDate={hackathonStartTime} />
-            
-            <div className="flex items-center gap-2">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all"
-              title="Previous slide"
-            >
-              <SkipBack className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all"
-              title={isPlaying ? "Pause (P)" : "Play (P)"}
-            >
-              {isPlaying ? (
-                <Pause className="w-4 h-4" />
-              ) : (
-                <Play className="w-4 h-4" />
-              )}
-            </button>
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all"
-              title="Next slide"
-            >
-              <SkipForward className="w-4 h-4" />
-            </button>
-            <button
-              onClick={toggleFullscreen}
-              className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all ml-2"
-              title="Toggle fullscreen (F)"
-            >
-              {isFullscreen ? (
-                <Minimize className="w-4 h-4" />
-              ) : (
-                <Maximize className="w-4 h-4" />
-              )}
-            </button>
-            </div>
           </motion.div>
         </div>
       </header>
@@ -199,6 +160,51 @@ export default function HackathonLobby() {
         current={currentSlide}
         onSlideClick={setCurrentSlide}
       />
+
+      {/* Controls - bottom left */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5 }}
+        className="fixed bottom-8 left-8 z-40 flex items-center gap-2"
+      >
+        <button
+          onClick={prevSlide}
+          className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all"
+          title="Previous slide"
+        >
+          <SkipBack className="w-4 h-4" />
+        </button>
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all"
+          title={isPlaying ? "Pause (P)" : "Play (P)"}
+        >
+          {isPlaying ? (
+            <Pause className="w-4 h-4" />
+          ) : (
+            <Play className="w-4 h-4" />
+          )}
+        </button>
+        <button
+          onClick={nextSlide}
+          className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all"
+          title="Next slide"
+        >
+          <SkipForward className="w-4 h-4" />
+        </button>
+        <button
+          onClick={toggleFullscreen}
+          className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all ml-2"
+          title="Toggle fullscreen (F)"
+        >
+          {isFullscreen ? (
+            <Minimize className="w-4 h-4" />
+          ) : (
+            <Maximize className="w-4 h-4" />
+          )}
+        </button>
+      </motion.div>
 
       {/* Keyboard hints */}
       <motion.div
