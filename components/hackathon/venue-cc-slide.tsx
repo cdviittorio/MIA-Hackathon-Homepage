@@ -105,7 +105,7 @@ export function VenueCCSlide() {
                 <div className="w-3 h-3 rounded-full bg-primary" />
               </div>
               <span className="text-[9px] font-mono text-primary mt-1 whitespace-nowrap">THE LAB MIAMI</span>
-              <span className="text-[8px] text-muted-foreground">400 NW 26th St</span>
+              <span className="text-[8px] text-muted-foreground">2750 NW 3rd Ave</span>
             </motion.div>
 
             {/* Walking path - animated dashed line */}
@@ -164,7 +164,7 @@ export function VenueCCSlide() {
             transition={{ delay: 1.5 }}
             className="text-center mt-2 pt-2 border-t border-border/30"
           >
-            <span className="text-lg font-bold text-primary">~3 min</span>
+            <span className="text-lg font-bold text-primary">~5 min</span>
             <span className="text-xs text-muted-foreground ml-2">walk</span>
           </motion.div>
         </div>
