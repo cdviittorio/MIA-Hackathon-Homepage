@@ -70,14 +70,12 @@ function ColonSeparator() {
 
 export function MissionTimer({ targetDate }: MissionTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
-    days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   })
   const [missionStarted, setMissionStarted] = useState(false)
   const [missionTime, setMissionTime] = useState({
-    days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
@@ -90,19 +88,17 @@ export function MissionTimer({ targetDate }: MissionTimerProps) {
 
       if (difference > 0) {
         setMissionStarted(false)
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const totalHours = Math.floor(difference / (1000 * 60 * 60))
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
         const seconds = Math.floor((difference % (1000 * 60)) / 1000)
-        setTimeLeft({ days, hours, minutes, seconds })
+        setTimeLeft({ hours: totalHours, minutes, seconds })
       } else {
         setMissionStarted(true)
         const elapsed = Math.abs(difference)
-        const days = Math.floor(elapsed / (1000 * 60 * 60 * 24))
-        const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const totalHours = Math.floor(elapsed / (1000 * 60 * 60))
         const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60))
         const seconds = Math.floor((elapsed % (1000 * 60)) / 1000)
-        setMissionTime({ days, hours, minutes, seconds })
+        setMissionTime({ hours: totalHours, minutes, seconds })
       }
     }
 
@@ -112,6 +108,7 @@ export function MissionTimer({ targetDate }: MissionTimerProps) {
   }, [targetDate])
 
   const formatTwo = (value: number) => String(value).padStart(2, "0")
+  const formatHours = (value: number) => String(value).padStart(2, "0")
 
   const time = missionStarted ? missionTime : timeLeft
   const statusColor = missionStarted ? "text-green-400" : "text-primary"
@@ -136,21 +133,10 @@ export function MissionTimer({ targetDate }: MissionTimerProps) {
       
       {/* Flip clock display */}
       <div className="flex items-center">
-        {/* Days (if > 0) */}
-        {time.days > 0 && (
-          <>
-            <div className="flex gap-px">
-              <FlipDigit value={formatTwo(time.days)[0]} color={statusColor} />
-              <FlipDigit value={formatTwo(time.days)[1]} color={statusColor} />
-            </div>
-            <ColonSeparator />
-          </>
-        )}
-        
         {/* Hours */}
         <div className="flex gap-px">
-          <FlipDigit value={formatTwo(time.hours)[0]} color={statusColor} />
-          <FlipDigit value={formatTwo(time.hours)[1]} color={statusColor} />
+          <FlipDigit value={formatHours(time.hours)[0]} color={statusColor} />
+          <FlipDigit value={formatHours(time.hours)[1]} color={statusColor} />
         </div>
         
         <ColonSeparator />
