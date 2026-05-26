@@ -7,7 +7,7 @@ import Image from "next/image"
 const galleryImages = [
   { src: "https://ccclubmiami.com/assets/main-bar-BRdbzxv0.jpg", alt: "CC Club Main Bar" },
   { src: "https://ccclubmiami.com/assets/gallery-crowd-D-_Dn6Eu.jpg", alt: "CC Club Crowd" },
-  { src: "https://ccclubmiami.com/assets/gallery-cocktail-B2FQd2oM.jpg", alt: "Signature Cocktails" },
+  { src: "https://ccclubmiami.com/assets/signature-coupes-CUuk3UR-.jpg", alt: "Signature Cocktails" },
   { src: "https://ccclubmiami.com/assets/neon-cc-CUxggp2T.jpg", alt: "CC Neon Sign" },
 ]
 
