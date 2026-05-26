@@ -10,6 +10,7 @@ import { QuotesSlide } from "@/components/hackathon/quotes-slide"
 import { VenueLabSlide } from "@/components/hackathon/venue-lab-slide"
 import { VenueCCSlide } from "@/components/hackathon/venue-cc-slide"
 import { SlideIndicator } from "@/components/hackathon/slide-indicator"
+import { MissionTimer } from "@/components/hackathon/mission-timer"
 import { Play, Pause, SkipForward, SkipBack, Maximize, Minimize, Rocket } from "lucide-react"
 
 const SLIDE_DURATION = 15000 // 15 seconds per slide
@@ -129,8 +130,11 @@ export default function HackathonLobby() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-4"
           >
+            <MissionTimer targetDate={hackathonStartTime} />
+            
+            <div className="flex items-center gap-2">
             <button
               onClick={prevSlide}
               className="p-2 rounded-lg bg-card/50 border border-border/50 text-muted-foreground hover:text-foreground hover:bg-card transition-all"
@@ -167,6 +171,7 @@ export default function HackathonLobby() {
                 <Maximize className="w-4 h-4" />
               )}
             </button>
+            </div>
           </motion.div>
         </div>
       </header>
