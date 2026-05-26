@@ -85,26 +85,22 @@ function SleekRocket({ className }: { className?: string }) {
   )
 }
 
-// BCG Logo component - official BCG green logo  
+// BCG Logo component - clean text-based logo matching official branding
 function BCGLogo({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 80 32" className={className} fill="none">
-      {/* B */}
-      <path 
-        d="M0 4h7c4 0 6.5 2 6.5 5.5 0 2.2-1.2 3.8-3.2 4.5 2.4.6 4 2.5 4 5 0 3.8-2.8 6-7 6H0V4zm6.5 8.5c2.2 0 3.5-1.2 3.5-3.2 0-1.9-1.3-3-3.5-3H3.5v6.2h3zm.4 9c2.4 0 3.8-1.3 3.8-3.4 0-2.1-1.5-3.5-3.8-3.5H3.5v6.9h3.4z"
-        fill="#3DCD58"
-      />
-      {/* C */}
-      <path 
-        d="M28.5 21.5c-1.5 2.8-4.3 5-8.2 5-5.8 0-9.8-4.3-9.8-10.5S14.5 5.5 20.3 5.5c3.6 0 6.4 1.8 7.8 4.3l-3 1.8c-1-1.8-2.8-2.8-4.8-2.8-4 0-6.5 3-6.5 7.2s2.5 7.2 6.5 7.2c2.4 0 4.2-1.4 5.2-3.5l3 1.8z"
-        fill="#3DCD58"
-      />
-      {/* G */}
-      <path 
-        d="M44.5 21.5c-1.5 2.8-4.3 5-8.2 5-5.8 0-9.8-4.3-9.8-10.5S30.5 5.5 36.3 5.5c3.6 0 6.4 1.8 7.8 4.3l-3 1.8c-1-1.8-2.8-2.8-4.8-2.8-4 0-6.5 3-6.5 7.2s2.5 7.2 6.5 7.2c2 0 3.5-.8 4.5-2v-2.5h-4.5v-3H48v7.3c-1 1.2-2.2 2.2-3.5 3z"
-        fill="#3DCD58"
-      />
-    </svg>
+    <div className={className}>
+      <span 
+        className="font-bold tracking-tight"
+        style={{ 
+          color: '#3DCD58',
+          fontSize: '1.75rem',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          letterSpacing: '-0.02em'
+        }}
+      >
+        BCG
+      </span>
+    </div>
   )
 }
 
@@ -129,9 +125,9 @@ export function HeroSlide({ hackathonStartTime }: HeroSlideProps) {
         transition={{ delay: 0.1 }}
         className="absolute top-8 left-0 right-0 flex justify-center items-center gap-8"
       >
-        <BCGLogo className="h-8 text-foreground/80" />
+        <BCGLogo className="flex items-center" />
         <div className="w-px h-8 bg-foreground/20" />
-        <LabMiamiLogo className="h-8 object-contain" />
+        <LabMiamiLogo className="h-10 object-contain" />
       </motion.div>
 
       <motion.div
