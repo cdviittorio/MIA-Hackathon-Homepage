@@ -19,12 +19,12 @@ const agendaItems = [
     title: "AI Upskilling",
   },
   {
-    time: "11:00",
-    title: "Teams boarding their ships (with lunch)",
+    time: "11:15",
+    title: "Teams boarding their ships",
   },
   {
-    time: "11:30",
-    title: "Team Hacking",
+    time: "11:45",
+    title: "Lunch served & Hacking begins",
   },
   {
     time: "15:00",
