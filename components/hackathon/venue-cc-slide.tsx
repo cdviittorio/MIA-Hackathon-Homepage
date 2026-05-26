@@ -89,7 +89,7 @@ export function VenueCCSlide() {
         <div className="bg-card/80 backdrop-blur-sm rounded-xl border border-border/50 p-4 w-full">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Footprints className="w-4 h-4 text-primary" />
-            <span className="text-xs font-mono text-primary uppercase tracking-wider">Walking Route</span>
+            <span className="text-xs font-mono text-primary uppercase tracking-wider">Flying (walking) Path</span>
           </div>
           
           {/* Street Grid Map */}
