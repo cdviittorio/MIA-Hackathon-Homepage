@@ -20,7 +20,7 @@ const agendaItems = [
   },
   {
     time: "11:00",
-    title: "Lunch Break",
+    title: "Teams boarding their ships (with lunch)",
   },
   {
     time: "11:30",
