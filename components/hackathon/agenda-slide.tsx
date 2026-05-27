@@ -5,34 +5,28 @@ import { useState, useEffect } from "react"
 
 const agendaItems = [
   {
-    time: "28 May",
-    timeDetail: "12:00-16:00",
-    title: "Optional: IT support",
-    isOptional: true,
-  },
-  {
     time: "09:00",
-    title: "Welcome & Teams",
+    title: "Welcome and Take Off",
   },
   {
     time: "09:30",
     title: "AI Upskilling",
   },
   {
-    time: "11:00",
-    title: "Teams boarding their ships (with lunch)",
+    time: "11:15",
+    title: "Teams boarding their ships",
   },
   {
-    time: "11:30",
-    title: "Team Hacking",
+    time: "11:45",
+    title: "Lunch served & Hacking begins",
   },
   {
     time: "15:00",
-    title: "Presentations",
+    title: "Final review & Winners",
   },
   {
     time: "16:00",
-    title: "Winners & Happy Hour",
+    title: "Drinks",
     isHighlight: true,
   },
 ]
